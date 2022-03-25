@@ -84,6 +84,7 @@ class TokenizerTrimmer:
         for i in tqdm(range(l)):
             p = self.m.pieces[i]
             if p.HasField('type') or i in self.trimmed_vocab:
+                self.trimmed_vocab.add(i)
                 self.m.pieces.append(p)
         del self.m.pieces[:l]
 
