@@ -44,18 +44,18 @@ tt.make_vocab(data)
 tt.make_tokenizer()
 
 # trim model
-mt = ModelTrimmer(model, config, tokenizer, tt.trimmed_vocab)
-mt.make_weights()
+mt = ModelTrimmer(model, config, tt.trimmed_tokenizer)
+mt.make_weights(tt.trimmed_vocab)
 mt.make_model()
 ```
 
-You can directly use the trimmed model with `mt.model` and the trimmed tokenizer with `tt.tokenizer`.
+You can directly use the trimmed model with `mt.trimmed_model` and the trimmed tokenizer with `tt.trimmed_tokenizer`.
 
 ### Saving and Loading
 ```python
 # save with
-tt.tokenizer.save_pretrained('trimT5')
-mt.model.save_pretrained('trimT5')
+tt.trimmed_tokenizer.save_pretrained('trimT5')
+mt.trimmed_model.save_pretrained('trimT5')
 
 # load with
 config = MT5Config.from_pretrained("trimT5")
@@ -69,4 +69,4 @@ Feel free to open an issue if you run into bugs or have any queries.
 
 ## Contributing
 
-Contributions are welcome, especially those adding currently unsupported models.
+Contributions are welcome, especially those adding functionality for currently unsupported models.

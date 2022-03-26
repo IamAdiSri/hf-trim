@@ -11,6 +11,7 @@ class TokenizerTrimmer:
         self.tokenizer = tokenizer
         self.m = None
         self.trimmed_vocab = set()
+        self.trimmed_tokenizer = None
 
     def make_vocab(self, data, tokenized=False):
         if tokenized:
@@ -29,7 +30,7 @@ class TokenizerTrimmer:
         _ = self.trim_tokenizer()
         if cleanup:
             self.cleanup()
-        return self.tokenizer
+        return self.trimmed_tokenizer
 
     def update_vocab_with_texts(self, texts):
         if len(texts)>0:
@@ -94,7 +95,7 @@ class TokenizerTrimmer:
         assert len(files)>0, "ERROR: No sentencepiece model found in {load_path}!"
         assert len(files)==1, "ERROR: Found more than one sentencepiece model in {load_path}!"
 
-        self.tokenizer = self.tokenizer.from_pretrained(load_path)
+        self.trimmed_tokenizer = self.tokenizer.from_pretrained(load_path)
 
     def cleanup(self):
         path = os.path.join('/tmp', self.uid)
