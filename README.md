@@ -1,10 +1,11 @@
 # hf-trim
 Reduce the size of pretrained Hugging Face models via vocabulary trimming.
 
-Currently the library only supports the following family of models;
+The library currently supports the following models;
 
-1. [T5](https://huggingface.co/docs/transformers/model_doc/t5) and its derivatives (such as [MT5](https://huggingface.co/docs/transformers/model_doc/mt5) and models on the [Hugging Face Models hub](https://huggingface.co/models)).
-2. [BART](https://huggingface.co/docs/transformers/main/en/model_doc/bart) and its derivatives (such as [mBART](https://huggingface.co/docs/transformers/main/en/model_doc/mbart) and models on the [Hugging Face Models hub](https://huggingface.co/models)).
+1. [BART](https://huggingface.co/docs/transformers/main/en/model_doc/bart) and its derivatives (such as [mBART](https://huggingface.co/docs/transformers/main/en/model_doc/mbart) and models on the [Hugging Face Models hub](https://huggingface.co/models)).
+2. [T5](https://huggingface.co/docs/transformers/model_doc/t5) and its derivatives (such as [MT5](https://huggingface.co/docs/transformers/model_doc/mt5) and models on the [Hugging Face Models hub](https://huggingface.co/models)).
+
 
 ## Installation
 
@@ -20,6 +21,7 @@ $ git clone https://github.com/IamAdiSri/hf-trim
 $ cd hf-trim
 $ pip install .
 ```
+
 
 ## Usage
 ### Simple Example
@@ -62,10 +64,15 @@ config = MT5Config.from_pretrained("trimT5")
 tokenizer = MT5Tokenizer.from_pretrained("trimT5")
 model = MT5ForConditionalGeneration.from_pretrained("trimT5")
 ```
+### Limitations
+- Fast tokenizers are currently unsupported.
+- Tensorflow models are currently unsupported.
+
 
 ## Issues
 
-Feel free to open an issue if you run into bugs or have any queries.
+Feel free to open an issue if you run into bugs, have any queries or want to request support for an architecture.
+
 
 ## Contributing
 

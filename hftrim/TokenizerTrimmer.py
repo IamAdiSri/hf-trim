@@ -2,11 +2,15 @@ import os
 import shutil
 import glob
 import uuid
+import warnings
 from sentencepiece import sentencepiece_model_pb2 as spm
 from tqdm import tqdm
 
 class TokenizerTrimmer:
     def __init__(self, tokenizer):
+        if 'Fast' in tokenizer.__class__.__name__:
+            warnings.warn(f"WARNING: Fast tokenizers are not supported. You can ignore this warning if you are not using an instance of PreTrainedTokenizerFast class of tokenizers!", RuntimeWarning)
+        
         self.uid = uuid.uuid4().hex
         self.tokenizer = tokenizer
         self.m = None
