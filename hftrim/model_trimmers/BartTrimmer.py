@@ -26,37 +26,68 @@ class BartTrimmer(BaseTrimmer):
 
 
     def initialize_new_model(self):
-        arch = self.config.architectures[0]
+        # arch = self.config.architectures[0]
+        arch = self.model.__class__.__name__
         if arch=='BartModel':
             from transformers import BartModel
             model = BartModel(self.config)
-        elif arch=='BartForConditionalGeneration':
-            from transformers import BartForConditionalGeneration
-            model = BartForConditionalGeneration(self.config)
-        elif arch=='BartForSequenceClassification':
-            from transformers import BartForSequenceClassification
-            model = BartForSequenceClassification(self.config)
-        elif arch=='BartForQuestionAnswering':
-            from transformers import BartForQuestionAnswering
-            model = BartForQuestionAnswering(self.config)
-        elif arch=='BartForCausalLM':
-            from transformers import BartForCausalLM
-            model = BartForCausalLM(self.config)
-        else:
-            raise NotImplementedError("ERROR: T5Trimmer does not support this architecture!")
-
-        self.trimmed_model = model
-
-    def trim_model(self):
-        # copy unchanged params over from the old model
-        for param in self.model.state_dict().keys():
-            if param in [
+            changed_params = [
                 'final_logits_bias',
                 'shared.weight', 
                 'encoder.embed_tokens.weight', 
                 'decoder.embed_tokens.weight', 
                 'lm_head.weight'
-            ]:
+            ]
+        elif arch=='BartForConditionalGeneration':
+            from transformers import BartForConditionalGeneration
+            model = BartForConditionalGeneration(self.config)
+            changed_params = [
+                'final_logits_bias',
+                'model.shared.weight', 
+                'model.encoder.embed_tokens.weight', 
+                'model.decoder.embed_tokens.weight', 
+                'lm_head.weight'
+            ]
+        elif arch=='BartForSequenceClassification':
+            from transformers import BartForSequenceClassification
+            model = BartForSequenceClassification(self.config)
+            changed_params = [
+                'final_logits_bias',
+                'model.shared.weight', 
+                'model.encoder.embed_tokens.weight', 
+                'model.decoder.embed_tokens.weight', 
+                'lm_head.weight'
+            ]
+        elif arch=='BartForQuestionAnswering':
+            from transformers import BartForQuestionAnswering
+            model = BartForQuestionAnswering(self.config)
+            changed_params = [
+                'final_logits_bias',
+                'model.shared.weight', 
+                'model.encoder.embed_tokens.weight', 
+                'model.decoder.embed_tokens.weight', 
+                'lm_head.weight'
+            ]
+        elif arch=='BartForCausalLM':
+            from transformers import BartForCausalLM
+            model = BartForCausalLM(self.config)
+            changed_params = [
+                'final_logits_bias',
+                'model.shared.weight', 
+                'model.encoder.embed_tokens.weight', 
+                'model.decoder.embed_tokens.weight', 
+                'lm_head.weight'
+            ]
+        else:
+            raise NotImplementedError("ERROR: BartTrimmer does not support this architecture!")
+
+        self.trimmed_model = model
+        self.changed_params = changed_params
+
+    def trim_model(self):
+        # copy unchanged params over from the old model
+        for param in self.model.state_dict().keys():
+            if param in self.changed_params:
                 continue
             self.trimmed_model.state_dict()[param].copy_(self.model.state_dict()[param])
         

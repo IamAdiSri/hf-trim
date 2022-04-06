@@ -38,7 +38,7 @@ class TokenizerTrimmer:
 
     def update_vocab_with_texts(self, texts):
         if len(texts)>0:
-            tokenized = self.tokenizer(texts)
+            tokenized = self.tokenizer(texts, add_special_tokens=False)
             for sample in tokenized['input_ids']:
                 self.trimmed_vocab.update(sample)
 
@@ -47,7 +47,7 @@ class TokenizerTrimmer:
 
     def add_special_tokens_to_vocab(self):
         self.update_vocab_with_texts(self.tokenizer.all_special_tokens)
-        self.update_vocab_with_texts(self.tokenizer.all_special_tokens_extended)
+        # self.update_vocab_with_texts(self.tokenizer.all_special_tokens_extended)
         self.update_vocab_with_texts(self.tokenizer.additional_special_tokens)
 
     def save_tokenizer(self, tokenizer=None, save_path=None):

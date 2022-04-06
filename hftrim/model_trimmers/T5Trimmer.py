@@ -16,7 +16,8 @@ class T5Trimmer(BaseTrimmer):
             self.trimmed_weights['lm_head'] = lmh[self.trimmed_vocab, :]
 
     def initialize_new_model(self):
-        arch = self.config.architectures[0]
+        # arch = self.config.architectures[0]
+        arch = self.model.__class__.__name__
         if arch=='T5Model':
             from transformers import T5Model
             model = T5Model(self.config)

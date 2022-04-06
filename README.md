@@ -64,9 +64,9 @@ config = MT5Config.from_pretrained("trimT5")
 tokenizer = MT5Tokenizer.from_pretrained("trimT5")
 model = MT5ForConditionalGeneration.from_pretrained("trimT5")
 ```
-### Limitations
+## Limitations
 - Fast tokenizers are currently unsupported.
-- Tensorflow models are currently unsupported.
+- Tensorflow and Flax models are currently unsupported.
 
 
 ## Issues

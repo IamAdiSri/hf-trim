@@ -6,7 +6,8 @@ class MT5Trimmer(T5Trimmer):
         super().__init__(model, config, tokenizer)
 
     def initialize_new_model(self):
-        arch = self.config.architectures[0]
+        # arch = self.config.architectures[0]
+        arch = self.model.__class__.__name__
         if arch=='MT5Model':
             from transformers import MT5Model
             model = MT5Model(self.config)
