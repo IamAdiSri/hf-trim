@@ -47,7 +47,7 @@ tt.make_tokenizer()
 
 # trim model
 mt = ModelTrimmer(model, config, tt.trimmed_tokenizer)
-mt.make_weights(tt.trimmed_vocab)
+mt.make_weights(tt.trimmed_vocab_ids)
 mt.make_model()
 ```
 
