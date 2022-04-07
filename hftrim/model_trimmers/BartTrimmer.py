@@ -8,21 +8,21 @@ class BartTrimmer(BaseTrimmer):
     def trim_weights(self):
         # final logits bias
         if 'final_logits_bias' in self.model.state_dict():
-            flb = model.final_logits_bias
-            self.trimmed_weights['final_logits_bias'] = flb[:, new_vocab]
+            flb = self.model.final_logits_bias
+            self.trimmed_weights['final_logits_bias'] = flb[:, self.trimmed_vocab_ids]
 
         # embedding matrix
-        if 'shared' in self.model.state_dict():
-            em = self.model.shared.weight.detach().numpy()
-            self.trimmed_weights['embeds'] = em[self.trimmed_vocab, :]
+        if 'model.shared.weight' in self.model.state_dict():
+            em = self.model.model.shared.weight.detach().numpy()
+            self.trimmed_weights['embeds'] = em[self.trimmed_vocab_ids, :]
         else:
-            em = self.model.decoder.embed_tokens.weight.detach().numpy()
-            self.trimmed_weights['embeds'] = em[self.trimmed_vocab, :]
+            em = self.model.model.decoder.embed_tokens.weight.detach().numpy()
+            self.trimmed_weights['embeds'] = em[self.trimmed_vocab_ids, :]
 
         # LM head matrix
         if 'lm_head' in self.model.state_dict():
             lmh = self.model.lm_head.weight.detach().numpy()
-            self.trimmed_weights['lm_head'] = lmh[self.trimmed_vocab, :]
+            self.trimmed_weights['lm_head'] = lmh[self.trimmed_vocab_ids, :]
 
 
     def initialize_new_model(self):

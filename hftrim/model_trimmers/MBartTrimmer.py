@@ -62,3 +62,4 @@ class MBartTrimmer(BartTrimmer):
             raise NotImplementedError("ERROR: MBartTrimmer does not support this architecture!")
 
         self.trimmed_model = model
+        self.changed_params = changed_params

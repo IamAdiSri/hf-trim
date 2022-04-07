@@ -7,12 +7,12 @@ class BaseTrimmer:
         self.config = config
         self.tokenizer = tokenizer
 
-        self.trimmed_vocab = None
+        self.trimmed_vocab_ids = None
         self.trimmed_model = None
         self.trimmed_weights = {}
 
-    def make_weights(self, vocab):
-        self.set_vocab(vocab)
+    def make_weights(self, vocab_ids):
+        self.set_vocab_ids(vocab_ids)
         self.set_config()
         self.trim_weights()
     
@@ -21,12 +21,12 @@ class BaseTrimmer:
         self.trim_model()
         return self.trimmed_model
 
-    def set_vocab(self, vocab):
-        self.trimmed_vocab = sorted(vocab)
+    def set_vocab_ids(self, vocab_ids):
+        self.trimmed_vocab_ids = sorted(vocab_ids)
 
     def set_config(self):
-        assert self.trimmed_vocab != None, "ERROR: Trimmed vocabulary has not yet been set!"
-        self.config.update(dict(vocab_size=len(self.trimmed_vocab)))
+        assert self.trimmed_vocab_ids != None, "ERROR: Trimmed vocabulary ids have not yet been set!"
+        self.config.update(dict(vocab_size=len(self.trimmed_vocab_ids)))
 
     def trim_weights(self):
         pass

@@ -15,6 +15,7 @@ class TokenizerTrimmer:
         self.tokenizer = tokenizer
         self.m = None
         self.trimmed_vocab = set()
+        self.trimmed_vocab_ids = None
         self.trimmed_tokenizer = None
 
     def make_vocab(self, data, tokenized=False):
@@ -25,6 +26,7 @@ class TokenizerTrimmer:
             self.update_vocab_with_texts(data)
 
         self.add_special_tokens_to_vocab()
+        self.extract_trimmed_vocab_ids()
     
     def make_tokenizer(self, cleanup=True):
         _ = self.save_tokenizer()
@@ -40,15 +42,18 @@ class TokenizerTrimmer:
         if len(texts)>0:
             tokenized = self.tokenizer(texts, add_special_tokens=False)
             for sample in tokenized['input_ids']:
-                self.trimmed_vocab.update(sample)
+                self.update_vocab_by_indices(sample)
 
     def update_vocab_by_indices(self, indices):
-        self.trimmed_vocab.update(indices)
+        for idx in indices:
+            self.trimmed_vocab.add(self.tokenizer.convert_ids_to_tokens(idx))
 
     def add_special_tokens_to_vocab(self):
-        self.update_vocab_with_texts(self.tokenizer.all_special_tokens)
-        # self.update_vocab_with_texts(self.tokenizer.all_special_tokens_extended)
-        self.update_vocab_with_texts(self.tokenizer.additional_special_tokens)
+        self.trimmed_vocab.update(self.tokenizer.all_special_tokens)
+        self.trimmed_vocab.update(self.tokenizer.additional_special_tokens)
+        
+    def self.extract_trimmed_vocab_ids(self):
+        self.trimmed_vocab_ids = sorted(self.tokenizer.convert_tokens_to_ids(self.trimmed_vocab))
 
     def save_tokenizer(self, tokenizer=None, save_path=None):
         save_path = os.path.join('/tmp', self.uid) if save_path == None else save_path
@@ -88,8 +93,7 @@ class TokenizerTrimmer:
         l = len(self.m.pieces)
         for i in tqdm(range(l)):
             p = self.m.pieces[i]
-            if p.HasField('type') or i in self.trimmed_vocab:
-                self.trimmed_vocab.add(i)
+            if p.HasField('type') or p.piece in self.trimmed_vocab:
                 self.m.pieces.append(p)
         del self.m.pieces[:l]
 
@@ -105,3 +109,7 @@ class TokenizerTrimmer:
         path = os.path.join('/tmp', self.uid)
         assert os.path.exists(path), f"ERROR: Cannot cleanup as files are not in the default location /tmp/{self.uid}!"
         shutil.rmtree(path)
+        
+    def _sanity_check(self):
+        # checks if encode-decode from old and new tokenizers is the same
+        pass
