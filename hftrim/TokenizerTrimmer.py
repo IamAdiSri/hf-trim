@@ -52,7 +52,7 @@ class TokenizerTrimmer:
         self.trimmed_vocab.update(self.tokenizer.all_special_tokens)
         self.trimmed_vocab.update(self.tokenizer.additional_special_tokens)
         
-    def self.extract_trimmed_vocab_ids(self):
+    def extract_trimmed_vocab_ids(self):
         self.trimmed_vocab_ids = sorted(self.tokenizer.convert_tokens_to_ids(self.trimmed_vocab))
 
     def save_tokenizer(self, tokenizer=None, save_path=None):
