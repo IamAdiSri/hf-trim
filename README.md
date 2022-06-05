@@ -6,7 +6,6 @@ The library currently supports the following models;
 1. [BART](https://huggingface.co/docs/transformers/main/en/model_doc/bart) and its derivatives (such as [mBART](https://huggingface.co/docs/transformers/main/en/model_doc/mbart) and models on the [Hugging Face Models hub](https://huggingface.co/models)).
 2. [T5](https://huggingface.co/docs/transformers/model_doc/t5) and its derivatives (such as [MT5](https://huggingface.co/docs/transformers/model_doc/mt5) and models on the [Hugging Face Models hub](https://huggingface.co/models)).
 
-
 ## Installation
 
 Run the following command to install from PyPI;
@@ -68,6 +67,9 @@ model = MT5ForConditionalGeneration.from_pretrained("trimT5")
 - Fast tokenizers are currently unsupported.
 - Tensorflow and Flax models are currently unsupported.
 
+## Upcoming Features
+- Support for MarianMT models.
+- Support for FSMT models.
 
 ## Issues
 

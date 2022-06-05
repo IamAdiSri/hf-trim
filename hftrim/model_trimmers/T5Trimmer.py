@@ -11,7 +11,7 @@ class T5Trimmer(BaseTrimmer):
         self.trimmed_weights['shared'] = em[self.trimmed_vocab_ids, :]
 
         # LM head matrix
-        if 'lm_head' in self.model.state_dict():
+        if 'lm_head.weight' in self.model.state_dict():
             lmh = self.model.lm_head.weight.detach().numpy()
             self.trimmed_weights['lm_head'] = lmh[self.trimmed_vocab_ids, :]
 

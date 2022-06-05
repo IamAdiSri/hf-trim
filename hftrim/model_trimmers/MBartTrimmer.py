@@ -12,11 +12,9 @@ class MBartTrimmer(BartTrimmer):
             from transformers import MBartModel
             model = MBartModel(self.config)
             changed_params = [
-                'final_logits_bias',
                 'shared.weight', 
                 'encoder.embed_tokens.weight', 
-                'decoder.embed_tokens.weight', 
-                'lm_head.weight'
+                'decoder.embed_tokens.weight'
             ]
         elif arch=='MBartForConditionalGeneration':
             from transformers import MBartForConditionalGeneration
@@ -32,29 +30,22 @@ class MBartTrimmer(BartTrimmer):
             from transformers import MBartForSequenceClassification
             model = MBartForSequenceClassification(self.config)
             changed_params = [
-                'final_logits_bias',
                 'model.shared.weight', 
                 'model.encoder.embed_tokens.weight', 
-                'model.decoder.embed_tokens.weight', 
-                'lm_head.weight'
+                'model.decoder.embed_tokens.weight'
             ]
         elif arch=='MBartForQuestionAnswering':
             from transformers import MBartForQuestionAnswering
             model = MBartForQuestionAnswering(self.config)
             changed_params = [
-                'final_logits_bias',
                 'model.shared.weight', 
                 'model.encoder.embed_tokens.weight', 
-                'model.decoder.embed_tokens.weight', 
-                'lm_head.weight'
+                'model.decoder.embed_tokens.weight'
             ]
         elif arch=='MBartForCausalLM':
             from transformers import MBartForCausalLM
             model = MBartForCausalLM(self.config)
             changed_params = [
-                'final_logits_bias',
-                'model.shared.weight', 
-                'model.encoder.embed_tokens.weight', 
                 'model.decoder.embed_tokens.weight', 
                 'lm_head.weight'
             ]

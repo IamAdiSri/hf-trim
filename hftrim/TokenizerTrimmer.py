@@ -3,6 +3,8 @@ import shutil
 import glob
 import uuid
 import warnings
+
+os.environ['PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION'] = 'python'
 from sentencepiece import sentencepiece_model_pb2 as spm
 from tqdm import tqdm
 

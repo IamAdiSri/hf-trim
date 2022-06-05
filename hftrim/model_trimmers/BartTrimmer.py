@@ -20,7 +20,7 @@ class BartTrimmer(BaseTrimmer):
             self.trimmed_weights['embeds'] = em[self.trimmed_vocab_ids, :]
 
         # LM head matrix
-        if 'lm_head' in self.model.state_dict():
+        if 'lm_head.weight' in self.model.state_dict():
             lmh = self.model.lm_head.weight.detach().numpy()
             self.trimmed_weights['lm_head'] = lmh[self.trimmed_vocab_ids, :]
 
@@ -32,11 +32,9 @@ class BartTrimmer(BaseTrimmer):
             from transformers import BartModel
             model = BartModel(self.config)
             changed_params = [
-                'final_logits_bias',
                 'shared.weight', 
                 'encoder.embed_tokens.weight', 
-                'decoder.embed_tokens.weight', 
-                'lm_head.weight'
+                'decoder.embed_tokens.weight'
             ]
         elif arch=='BartForConditionalGeneration':
             from transformers import BartForConditionalGeneration
@@ -52,29 +50,22 @@ class BartTrimmer(BaseTrimmer):
             from transformers import BartForSequenceClassification
             model = BartForSequenceClassification(self.config)
             changed_params = [
-                'final_logits_bias',
                 'model.shared.weight', 
                 'model.encoder.embed_tokens.weight', 
-                'model.decoder.embed_tokens.weight', 
-                'lm_head.weight'
+                'model.decoder.embed_tokens.weight'
             ]
         elif arch=='BartForQuestionAnswering':
             from transformers import BartForQuestionAnswering
             model = BartForQuestionAnswering(self.config)
             changed_params = [
-                'final_logits_bias',
                 'model.shared.weight', 
                 'model.encoder.embed_tokens.weight', 
-                'model.decoder.embed_tokens.weight', 
-                'lm_head.weight'
+                'model.decoder.embed_tokens.weight'
             ]
         elif arch=='BartForCausalLM':
             from transformers import BartForCausalLM
             model = BartForCausalLM(self.config)
             changed_params = [
-                'final_logits_bias',
-                'model.shared.weight', 
-                'model.encoder.embed_tokens.weight', 
                 'model.decoder.embed_tokens.weight', 
                 'lm_head.weight'
             ]
