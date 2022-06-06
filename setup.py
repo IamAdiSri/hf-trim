@@ -11,7 +11,7 @@ with open(readme_fname, 'r') as f:
 setup(
     name='hf-trim',
     version=__version__,    
-    description='Reduce the size of pretrained Hugging Face models via vocabulary trimming.',
+    description='A tool to reduce the size of Hugging Face models via vocabulary trimming.',
     url='https://github.com/IamAdiSri/hf-trim',
     author='Aditya Srivastava',
     author_email='adi.srivastava@hotmail.com',
@@ -33,9 +33,14 @@ setup(
     python_requires='>=3.8',
 
     classifiers=[
-        'Development Status :: 1 - Planning',
+        'Development Status :: 4 - Beta',
         'Intended Audience :: Science/Research',
+        'Intended Audience :: Developers',
         'License :: OSI Approved :: Mozilla Public License 2.0 (MPL 2.0)',
+        'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Operating System :: OS Independent',
+        'Topic :: Scientific/Engineering :: Artificial Intelligence'
     ],
 )

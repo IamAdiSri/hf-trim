@@ -1,13 +1,15 @@
 # hf-trim
-Reduce the size of pretrained Hugging Face models via vocabulary trimming.
+A tool to reduce the size of Hugging Face models via vocabulary trimming.
 
-The library currently supports the following models;
+The library currently supports the following models (and their pretrained versions available on the [Hugging Face Models hub](https://huggingface.co/models));
 
-1. [BART](https://huggingface.co/docs/transformers/main/en/model_doc/bart) and its derivatives (such as [mBART](https://huggingface.co/docs/transformers/main/en/model_doc/mbart) and models on the [Hugging Face Models hub](https://huggingface.co/models)).
-2. [T5](https://huggingface.co/docs/transformers/model_doc/t5) and its derivatives (such as [MT5](https://huggingface.co/docs/transformers/model_doc/mt5) and models on the [Hugging Face Models hub](https://huggingface.co/models)).
+1. [BART: Denoising Sequence-to-Sequence Pre-training for Natural Language Generation](https://huggingface.co/docs/transformers/main/en/model_doc/bart)
+2. [mBART: Multilingual Denoising Pre-training for Neural Machine Translation](https://huggingface.co/docs/transformers/main/en/model_doc/mbart)
+3. [T5: Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer](https://huggingface.co/docs/transformers/model_doc/t5)
+4. [mT5: A Massively Multilingual Pre-trained Text-to-Text Transformer](https://huggingface.co/docs/transformers/model_doc/mt5)
+
 
 ## Installation
-
 Run the following command to install from PyPI;
 ```bash
 $ pip install hf-trim
@@ -21,13 +23,12 @@ $ cd hf-trim
 $ pip install .
 ```
 
-
 ## Usage
 ### Simple Example
 ```python
 from transformers import MT5Config, MT5Tokenizer, MT5ForConditionalGeneration
-from hf-trim.TokenizerTrimmer import TokenizerTrimmer
-from hf-trim.ModelTrimmer import ModelTrimmer
+from hftrim.TokenizerTrimmer import TokenizerTrimmer
+from hftrim.ModelTrimmer import ModelTrimmer
 
 data = [
         " UN Chief Says There Is No Military Solution in Syria", 
@@ -63,19 +64,21 @@ config = MT5Config.from_pretrained("trimT5")
 tokenizer = MT5Tokenizer.from_pretrained("trimT5")
 model = MT5ForConditionalGeneration.from_pretrained("trimT5")
 ```
+
+
 ## Limitations
 - Fast tokenizers are currently unsupported.
 - Tensorflow and Flax models are currently unsupported.
 
-## Upcoming Features
-- Support for MarianMT models.
-- Support for FSMT models.
+
+## Roadmap
+- Add support for MarianMT models.
+- Add support for FSMT models.
+
 
 ## Issues
-
 Feel free to open an issue if you run into bugs, have any queries or want to request support for an architecture.
 
 
 ## Contributing
-
 Contributions are welcome, especially those adding functionality for currently unsupported models.
