@@ -1,8 +1,8 @@
 # hf-trim
 
-![Python](https://img.shields.io/badge/python-3670A0?logo=python&logoColor=ffdd54) ![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-red) ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=PyTorch&logoColor=white)
+[![Python](https://img.shields.io/badge/python-3670A0?logo=python&logoColor=ffdd54)](#) [![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-red)](#) [![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=PyTorch&logoColor=white)](#)
 
-[<img alt="PyPI" src="https://img.shields.io/pypi/v/hf-trim">](https://pypi.org/project/hf-trim) [<img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/IamAdiSri/hf-trim">](https://github.com/IamAdiSri/hf-trim/releases) <img alt="PyPI - License" src="https://img.shields.io/pypi/l/hf-trim">
+[<img alt="PyPI" src="https://img.shields.io/pypi/v/hf-trim">](https://pypi.org/project/hf-trim) [<img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/IamAdiSri/hf-trim">](https://github.com/IamAdiSri/hf-trim/releases) [<img alt="PyPI - License" src="https://img.shields.io/pypi/l/hf-trim">](#)
 
 
 **A package to reduce the size of 🤗 Hugging Face models via vocabulary trimming.**
@@ -20,7 +20,8 @@ To put it simply, vocabulary trimming is a way to reduce a language model's memo
 
 Read more [here]().
 
-### Citation
+
+## Citation
 
 If you use this software, please cite it as given below;
 ```
@@ -31,8 +32,6 @@ title = {{hf-trim}}
 url = {https://github.com/IamAdiSri/hf-trim}
 }
 ```
-___
-
 
 ## Installation
 Run the following command to install from PyPI;
@@ -106,4 +105,4 @@ Feel free to open an issue if you run into bugs, have any queries or want to req
 
 
 ## Contributing
-Contributions are welcome, especially those adding functionality for currently unsupported models.
+Contributions are welcome, especially those adding functionality for new or currently unsupported models.
