@@ -19,6 +19,18 @@ The library currently supports the following models (and their pretrained versio
 To put it simply, vocabulary trimming is a way to reduce a language model's memory footprint while retaining most of its performance.
 
 Read more [here]().
+
+### Citation
+
+If you use this software, please cite it as given below;
+```
+@software{Srivastava_hf-trim,
+author = {Srivastava, Aditya},
+license = {MPL-2.0},
+title = {{hf-trim}}
+url = {https://github.com/IamAdiSri/hf-trim}
+}
+```
 ___
 
 
@@ -95,4 +107,3 @@ Feel free to open an issue if you run into bugs, have any queries or want to req
 
 ## Contributing
 Contributions are welcome, especially those adding functionality for currently unsupported models.
-
