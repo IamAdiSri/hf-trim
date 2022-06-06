@@ -1,5 +1,11 @@
 # hf-trim
-A tool to reduce the size of Hugging Face models via vocabulary trimming.
+
+![Python](https://img.shields.io/badge/python-3670A0?logo=python&logoColor=ffdd54) ![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-red) ![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=PyTorch&logoColor=white)
+
+[<img alt="PyPI" src="https://img.shields.io/pypi/v/hf-trim">](https://pypi.org/project/hf-trim) [<img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/IamAdiSri/hf-trim">](https://github.com/IamAdiSri/hf-trim/releases) <img alt="PyPI - License" src="https://img.shields.io/pypi/l/hf-trim">
+
+
+**A package to reduce the size of 🤗 Hugging Face models via vocabulary trimming.**
 
 The library currently supports the following models (and their pretrained versions available on the [Hugging Face Models hub](https://huggingface.co/models));
 
@@ -7,6 +13,13 @@ The library currently supports the following models (and their pretrained versio
 2. [mBART: Multilingual Denoising Pre-training for Neural Machine Translation](https://huggingface.co/docs/transformers/main/en/model_doc/mbart)
 3. [T5: Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer](https://huggingface.co/docs/transformers/model_doc/t5)
 4. [mT5: A Massively Multilingual Pre-trained Text-to-Text Transformer](https://huggingface.co/docs/transformers/model_doc/mt5)
+
+### _"Why would I need to trim the vocabulary on a model?"_ 🤔
+
+To put it simply, vocabulary trimming is a way to reduce a language model's memory footprint while retaining most of its performance.
+
+Read more [here]().
+___
 
 
 ## Installation
@@ -82,3 +95,4 @@ Feel free to open an issue if you run into bugs, have any queries or want to req
 
 ## Contributing
 Contributions are welcome, especially those adding functionality for currently unsupported models.
+

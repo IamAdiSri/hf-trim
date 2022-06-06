@@ -1,0 +1,31 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: hf-trim
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Aditya
+    family-names: Srivastava
+    email: adi.srivastava@hotmail.com
+    affiliation: Independent
+    orcid: 'https://orcid.org/0000-0002-2908-0273'
+identifiers:
+  - type: url
+    value: 'https://github.com/IamAdiSri/hf-trim'
+    description: Homepage
+abstract: >-
+  A package to reduce the size of Hugging Face models
+  via vocabulary trimming.
+keywords:
+  - Machine Learning
+  - Deep Learning
+  - Neural Networks
+  - Artificial Intelligence
+  - Python
+  - Pytorch
+  - Hugging Face
+license: MPL-2.0
