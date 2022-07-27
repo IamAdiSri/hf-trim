@@ -18,7 +18,7 @@ The library currently supports the following models (and their pretrained versio
 
 To put it simply, vocabulary trimming is a way to reduce a language model's memory footprint while retaining most of its performance.
 
-Read more [here]().
+Read more [here](WHY.md).
 
 
 ## Citation
