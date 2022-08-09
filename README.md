@@ -52,7 +52,7 @@ $ pip install .
 ```python
 from transformers import MT5Config, MT5Tokenizer, MT5ForConditionalGeneration
 from hftrim.TokenizerTrimmer import TokenizerTrimmer
-from hftrim.model_trimmers.MT5Trimmer import MT5Trimmer
+from hftrim.ModelTrimmers import MT5Trimmer
 
 data = [
         " UN Chief Says There Is No Military Solution in Syria", 

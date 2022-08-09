@@ -1,5 +1,5 @@
 import os
-from setuptools import setup
+from setuptools import setup, find_packages
 from hftrim import __version__
 
 THIS_DIR = os.path.dirname(os.path.abspath(__file__))
@@ -19,9 +19,7 @@ setup(
     license='MPL',
     long_description=long_description,
     long_description_content_type='text/markdown',
-    packages=[
-        'hftrim'
-    ],
+    packages=find_packages(),
     install_requires=[
         'numpy>=1.22.3',
         'protobuf>=3.19.4',

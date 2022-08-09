@@ -1,4 +1,3 @@
-import torch
 from .BartTrimmer import BartTrimmer
 
 class MBartTrimmer(BartTrimmer):
