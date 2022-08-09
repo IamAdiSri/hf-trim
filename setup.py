@@ -13,7 +13,7 @@ setup(
     version=__version__,    
     description='A tool to reduce the size of Hugging Face models via vocabulary trimming.',
     url='https://github.com/IamAdiSri/hf-trim',
-    download_url='https://github.com/IamAdiSri/hf-trim/archive/v2.3.1-beta.tar.gz',
+    download_url='https://github.com/IamAdiSri/hf-trim/archive/v2.3.2-beta.tar.gz',
     author='Aditya Srivastava',
     author_email='adi.srivastava@hotmail.com',
     license='MPL',

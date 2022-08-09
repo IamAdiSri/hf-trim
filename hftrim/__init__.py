@@ -15,9 +15,3 @@ __supported_architectures__ = [
     'T5Model', 'T5ForConditionalGeneration', 'T5EncoderModel',
     'MT5Model', 'MT5ForConditionalGeneration', 'MT5EncoderModel'
 ]
-
-from .model_trimmers import (
-    BaseTrimmer,
-    BartTrimmer, MBartTrimmer,
-    T5Trimmer, MT5Trimmer
-)
