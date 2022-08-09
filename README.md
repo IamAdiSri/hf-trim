@@ -34,17 +34,19 @@ url = {https://github.com/IamAdiSri/hf-trim}
 ```
 
 ## Installation
-You can install from source (recommended);
-```bash
-$ git clone https://github.com/IamAdiSri/hf-trim
-$ cd hf-trim
-$ pip install -e .
-```
 
 You can also run the following command to install from PyPI;
 ```bash
 $ pip install hf-trim
 ```
+
+You can install from source;
+```bash
+$ git clone https://github.com/IamAdiSri/hf-trim
+$ cd hf-trim
+$ pip install .
+```
+
 
 ## Usage
 ### Simple Example
