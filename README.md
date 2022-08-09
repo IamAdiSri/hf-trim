@@ -52,7 +52,7 @@ $ pip install .
 ```python
 from transformers import MT5Config, MT5Tokenizer, MT5ForConditionalGeneration
 from hftrim.TokenizerTrimmer import TokenizerTrimmer
-from hftrim.ModelTrimmer import ModelTrimmer
+from hftrim.model_trimmers.MT5Trimmer import MT5Trimmer
 
 data = [
         " UN Chief Says There Is No Military Solution in Syria", 
@@ -70,7 +70,7 @@ tt.make_vocab(data)
 tt.make_tokenizer()
 
 # trim model
-mt = ModelTrimmer(model, config, tt.trimmed_tokenizer)
+mt = MT5Trimmer(model, config, tt.trimmed_tokenizer)
 mt.make_weights(tt.trimmed_vocab_ids)
 mt.make_model()
 ```
