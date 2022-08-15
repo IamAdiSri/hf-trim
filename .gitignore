@@ -5,3 +5,5 @@ dist/
 temp/
 scratch.ipynb
 .ipynb_checkpoints
+build.sh
+upload.sh

@@ -51,7 +51,7 @@ class T5Trimmer(BaseTrimmer):
         self.trimmed_model.set_input_embeddings(prunedEmbeddingMatrix)
 
         if 'lm_head' in self.trimmed_weights:
-            prunedLMHeadMatrix = torch.Tensor(new_lmh)
+            prunedLMHeadMatrix = torch.Tensor(self.trimmed_weights['lm_head'])
             _ = self.trimmed_model.lm_head.weight.data.copy_(prunedLMHeadMatrix)
 
         # tie weights as set up in config
