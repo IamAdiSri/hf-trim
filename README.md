@@ -2,7 +2,7 @@
 
 [![Python](https://img.shields.io/badge/python-3670A0?logo=python&logoColor=ffdd54)](#) [![HuggingFace](https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-red)](#) [![PyTorch](https://img.shields.io/badge/PyTorch-%23EE4C2C.svg?logo=PyTorch&logoColor=white)](#)
 
-[<img alt="PyPI" src="https://img.shields.io/pypi/v/hf-trim">](https://pypi.org/project/hf-trim) [<img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/IamAdiSri/hf-trim">](https://github.com/IamAdiSri/hf-trim/releases) [<img alt="PyPI - License" src="https://img.shields.io/pypi/l/hf-trim">](#)
+[![Downloads](https://pepy.tech/badge/hf-trim)](https://pepy.tech/project/hf-trim) [<img alt="PyPI" src="https://img.shields.io/pypi/v/hf-trim">](https://pypi.org/project/hf-trim) [<img alt="GitHub tag (latest by date)" src="https://img.shields.io/github/v/tag/IamAdiSri/hf-trim">](https://github.com/IamAdiSri/hf-trim/releases) [<img alt="PyPI - License" src="https://img.shields.io/pypi/l/hf-trim">](#)
 
 
 **A package to reduce the size of 🤗 Hugging Face models via vocabulary trimming.**
