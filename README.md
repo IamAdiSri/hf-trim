@@ -35,7 +35,7 @@ url = {https://github.com/IamAdiSri/hf-trim}
 
 ## Installation
 
-You can run the following command to install from PyPI;
+You can run the following command to install from PyPI (recommended);
 ```bash
 $ pip install hf-trim
 ```
